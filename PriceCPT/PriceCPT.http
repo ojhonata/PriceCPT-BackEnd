@@ -1,0 +1,6 @@
+@PriceCPT_HostAddress = http://localhost:5254
+
+GET {{PriceCPT_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

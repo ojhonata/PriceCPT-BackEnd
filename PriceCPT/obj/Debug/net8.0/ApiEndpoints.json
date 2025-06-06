@@ -1,0 +1,218 @@
+[
+  {
+    "ContainingType": "PriceCPT.Controllers.v1.MercadoLivreController",
+    "Method": "AdicionarProduto",
+    "RelativePath": "api/MercadoLivre/adicionar-produto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "link",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v1.MercadoLivreController",
+    "Method": "AtualizarPrecoProduto",
+    "RelativePath": "api/MercadoLivre/atualizar-preco",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "link",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v1.AlteracaoPrecoController",
+    "Method": "Get",
+    "RelativePath": "api/v1/alteracao-preco",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v1.ProdutoController",
+    "Method": "Add",
+    "RelativePath": "api/v1/produto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "produtos",
+        "Type": "PriceCPT.Domain.DTOs.ProdutoDTOs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v1.ProdutoController",
+    "Method": "Get",
+    "RelativePath": "api/v1/produto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v1.ProdutoController",
+    "Method": "DeleteUsuario",
+    "RelativePath": "api/v1/produto/{id_produto}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_produto",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v1.ProdutoController",
+    "Method": "Buscar",
+    "RelativePath": "api/v1/produto/buscar/{termo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "termo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v1.UsuarioController",
+    "Method": "Add",
+    "RelativePath": "api/v1/usuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarios",
+        "Type": "PriceCPT.Domain.DTOs.UsuarioDTOs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v1.UsuarioController",
+    "Method": "Get",
+    "RelativePath": "api/v1/usuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v1.UsuarioController",
+    "Method": "Search",
+    "RelativePath": "api/v1/usuario/{ID_USUARIO}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID_USUARIO",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v1.UsuarioController",
+    "Method": "DeleteUsuario",
+    "RelativePath": "api/v1/usuario/{ID_USUARIO}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID_USUARIO",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v1.UsuarioController",
+    "Method": "Login",
+    "RelativePath": "api/v1/usuario/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "PriceCPT.Domain.DTOs.LoginDTOs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v2.UsuarioController",
+    "Method": "Add",
+    "RelativePath": "api/v2/usuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarios",
+        "Type": "PriceCPT.Domain.DTOs.UsuarioDTOs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PriceCPT.Controllers.v2.UsuarioController",
+    "Method": "Search",
+    "RelativePath": "api/v2/usuario/{ID_USARIO}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID_USARIO",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
