@@ -321,6 +321,11 @@
             "type": "number",
             "format": "double"
           },
+          "preco_base": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
           "data_alteracao": {
             "type": "string",
             "format": "date-time"
@@ -357,13 +362,14 @@
             "type": "string",
             "nullable": true
           },
-          "descricao": {
-            "type": "string",
-            "nullable": true
-          },
           "preco": {
             "type": "number",
             "format": "double"
+          },
+          "preco_base": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           },
           "mlb": {
             "type": "string",

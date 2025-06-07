@@ -46,14 +46,15 @@ namespace PriceCPT.Controllers.v1
 
                 string nome = jsonData.GetProperty("title").GetString();
                 decimal preco = jsonData.GetProperty("price").GetDecimal();
+                decimal preco_base = jsonData.GetProperty("base_price").GetDecimal();
                 string imagemUrl = jsonData.GetProperty("thumbnail").GetString();
                 int estoque = jsonData.GetProperty("initial_quantity").GetInt32();
 
                 var novoProduto = new Produto
                 {
                     Nome = nome,
-                    Descricao = "Sem descrição",
                     Preco = preco,
+                    Preco_base = preco_base,
                     Mlb = mlb,
                     Imagem_url = imagemUrl,
                     Estoque = estoque,
@@ -111,6 +112,7 @@ namespace PriceCPT.Controllers.v1
 
                 string nome = dados.GetProperty("title").GetString();
                 decimal precoAtual = dados.GetProperty("price").GetDecimal();
+                decimal preco_base = dados.GetProperty("base_price").GetDecimal();
                 string imagem = dados.GetProperty("thumbnail").GetString();
                 int estoque = dados.GetProperty("initial_quantity").GetInt32();
 
@@ -119,7 +121,10 @@ namespace PriceCPT.Controllers.v1
 
                 if (produto != null)
                 {
-                    
+
+                    bool houveMudanca = false;
+
+                    // Verifica e atualiza o preço, se necessário
                     if (produto.Preco != precoAtual)
                     {
                         var alteracao = new AlteracaoPreco
@@ -127,49 +132,56 @@ namespace PriceCPT.Controllers.v1
                             Id_produto = produto.Id_produto,
                             Preco_antigo = produto.Preco,
                             Preco_novo = precoAtual,
+                            Preco_base = preco_base,
                             Data_alteracao = DateTime.Now,
                             Estoque = estoque
                         };
 
                         _context.AlteracaoPrecos.Add(alteracao);
-
                         produto.Preco = precoAtual;
-                        _context.Produtos.Update(produto);
+                        houveMudanca = true;
+                    }
 
+                    // Verifica e atualiza o preco_base, se necessário
+                    if (produto.Preco_base != preco_base)
+                    {
+                        produto.Preco_base = preco_base;
+                        houveMudanca = true;
+                    }
+
+                    // Verifica e atualiza o estoque, se necessário
+                    if (produto.Estoque != estoque)
+                    {
                         produto.Estoque = estoque;
-                        _context.Produtos.Update(produto);
+                        houveMudanca = true;
+                    }
 
+                    if (houveMudanca)
+                    {
+                        _context.Produtos.Update(produto);
                         await _context.SaveChangesAsync();
 
                         return Ok(new
                         {
-                            mensagem = "Preço atualizado.",
+                            mensagem = "Produto atualizado.",
                             produto = new ProdutoDTOs
                             {
                                 Id_produto = produto.Id_produto,
                                 Nome = produto.Nome,
                                 Mlb = produto.Mlb,
-                                preco = produto.Preco,
+                                Preco = produto.Preco,
+                                Preco_base = produto.Preco_base,
                                 Imagem_url = produto.Imagem_url,
                                 Data_cadastro = produto.Data_cadastro,
-                                Estoque = estoque
-                            },
-                            alteracao = new AlteracaoPrecoDTOs
-                            {
-                                Id_preco = alteracao.Id_preco,
-                                Preco_antigo = alteracao.Preco_antigo,
-                                Preco_novo = alteracao.Preco_novo,
-                                Data_alteracao = alteracao.Data_alteracao,
-                                Estoque = alteracao.Estoque ?? 0
+                                Estoque = produto.Estoque
                             }
                         });
                     }
-
-                    
-                    return Ok(new
+                    else
                     {
-                        mensagem = "O preço continua o mesmo",
-                    });
+                        return Ok(new { mensagem = "Nenhuma mudança detectada." });
+                    }
+
                 }
 
                 
@@ -178,8 +190,8 @@ namespace PriceCPT.Controllers.v1
                 {
                     
                     Nome = nome,
-                    Descricao = "Sem descrição",
                     Preco = precoAtual,
+                    Preco_base = preco_base,
                     Mlb = mlb,
                     Imagem_url = imagem,
                     Data_cadastro = DateTime.Now,

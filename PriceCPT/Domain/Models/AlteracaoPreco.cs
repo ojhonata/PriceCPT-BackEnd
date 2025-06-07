@@ -18,16 +18,18 @@ namespace PriceCPT.Domain.Models
 
         public decimal Preco_novo { get; set; }
         public decimal Preco_antigo { get; set; }
+        public decimal? Preco_base { get; set; }
         public DateTime Data_alteracao { get; set; }
-        public int? Estoque { get; set; }
+        public int Estoque { get; set; }
 
         public AlteracaoPreco() { }
 
-        public AlteracaoPreco(int id_produto, decimal precoNovo, decimal precoAntigo, DateTime dataAlteracao, int estoque)
+        public AlteracaoPreco(int id_produto, decimal precoNovo, decimal precoAntigo, decimal precoBase, DateTime dataAlteracao, int estoque)
         {
             this.Id_produto = id_produto;
             this.Preco_novo = precoNovo;
             this.Preco_antigo = precoAntigo;
+            this.Preco_base = precoBase;
             this.Data_alteracao = dataAlteracao;
             this.Estoque = estoque;
         }

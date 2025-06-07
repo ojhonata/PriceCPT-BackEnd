@@ -146,3 +146,4 @@ C:\Users\Jhonata\source\repos\PriceCPT\PriceCPT\bin\Debug\net8.0\Microsoft.AspNe
 C:\Users\Jhonata\source\repos\PriceCPT\PriceCPT\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll
 C:\Users\Jhonata\source\repos\PriceCPT\PriceCPT\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Jhonata\source\repos\PriceCPT\PriceCPT\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Jhonata\source\repos\PriceCPT\PriceCPT\obj\Debug\net8.0\PriceCPT.sourcelink.json

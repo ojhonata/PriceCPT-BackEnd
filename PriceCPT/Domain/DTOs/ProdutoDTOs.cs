@@ -6,8 +6,8 @@
 
         public int Id_produto { get; set; }
         public string? Nome { get; set; }
-        public string? Descricao { get; set; }
-        public decimal preco { get => preco1; set => preco1 = value; }
+        public decimal Preco { get => preco1; set => preco1 = value; }
+        public decimal? Preco_base { get; set; }
         public string? Mlb { get; set; }
 
         public string? Imagem_url { get; set; }

@@ -11,8 +11,8 @@ namespace PriceCPT.Domain.Models
         public int Id_produto { get; set; }
 
         public string? Nome { get; set; }
-        public string Descricao { get; set; }
         public decimal Preco { get; set; }
+        public decimal? Preco_base { get; set; }
         public string? Mlb { get; set; }
         public string? Imagem_url { get; set; }
         public DateTime Data_cadastro { get; set; } = DateTime.Now;
@@ -23,11 +23,11 @@ namespace PriceCPT.Domain.Models
 
         public Produto() { }
 
-        public Produto(string nome, string descricao, decimal preco, string mlb)
+        public Produto(string nome, decimal preco, decimal? preco_base, string mlb)
         {
             this.Nome = nome;
-            this.Descricao = descricao;
             this.Preco = preco;
+            this.Preco_base = preco_base;
             this.Mlb = mlb;
             this.Data_cadastro = DateTime.Now;
             this.Estoque = Estoque;

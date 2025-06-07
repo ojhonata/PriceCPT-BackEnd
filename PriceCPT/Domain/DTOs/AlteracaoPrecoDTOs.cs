@@ -6,6 +6,7 @@
         public int Id_produto { get; set; }
         public decimal Preco_antigo { get; set; }
         public decimal Preco_novo { get; set; }
+        public decimal? Preco_base { get; set; }
         public DateTime Data_alteracao { get; set; }
         public int Estoque { get; set; }
 

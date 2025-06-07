@@ -27,7 +27,7 @@ namespace PriceCPT.Controllers.v1
         [HttpPost]
         public IActionResult Add([FromBody] ProdutoDTOs produtos)
         {
-            var produto = new Produto(produtos.Nome, produtos.Descricao, produtos.preco, produtos.Mlb);
+            var produto = new Produto(produtos.Nome, produtos.Preco, produtos.Preco_base, produtos.Mlb);
             _produtoRepository.Add(produto);
             return Ok();
         }
@@ -41,8 +41,8 @@ namespace PriceCPT.Controllers.v1
             {
                 Id_produto = p.Id_produto,
                 Nome = p.Nome,
-                Descricao = p.Descricao,
-                preco = p.Preco,
+                Preco = p.Preco,
+                Preco_base = p.Preco_base,
                 Mlb = p.Mlb,
                 Imagem_url = p.Imagem_url,
                 Data_cadastro = p.Data_cadastro,
@@ -53,7 +53,9 @@ namespace PriceCPT.Controllers.v1
                     Id_produto = a.Id_produto,
                     Preco_antigo = a.Preco_antigo,
                     Preco_novo = a.Preco_novo,
-                    Data_alteracao = a.Data_alteracao
+                    Preco_base = a.Preco_base,
+                    Data_alteracao = a.Data_alteracao,
+                    Estoque = a.Estoque
                 }).ToList() ?? new List<AlteracaoPrecoDTOs>()
             }).ToList();
 
@@ -70,8 +72,8 @@ namespace PriceCPT.Controllers.v1
             {
                 Id_produto = p.Id_produto,
                 Nome = p.Nome,
-                Descricao = p.Descricao,
-                preco = p.Preco,
+                Preco = p.Preco,
+                Preco_base = p.Preco_base,
                 Mlb = p.Mlb,
                 Imagem_url = p.Imagem_url,
                 Data_cadastro = p.Data_cadastro,
@@ -82,7 +84,9 @@ namespace PriceCPT.Controllers.v1
                     Id_produto = a.Id_produto,
                     Preco_antigo = a.Preco_antigo,
                     Preco_novo = a.Preco_novo,
-                    Data_alteracao = a.Data_alteracao
+                    Preco_base = a.Preco_base,
+                    Data_alteracao = a.Data_alteracao,
+                    Estoque = a.Estoque
                 }).ToList() ?? new List<AlteracaoPrecoDTOs>()
             }).ToList();
 

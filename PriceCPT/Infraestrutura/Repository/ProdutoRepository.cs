@@ -31,7 +31,7 @@ namespace PriceCPT.Infraestrutura.Repository
         {
             return _context.Produtos
                 .Include(p => p.AlteracaoProdutos)
-                .Where(p => EF.Functions.Like(p.Nome, $"%{termo}%") || EF.Functions.Like(p.Descricao, $"%{termo}%"))
+                .Where(p => EF.Functions.Like(p.Nome, $"%{termo}%") || EF.Functions.Like(p.Nome, $"%{termo}%"))
                 .ToList();
         }
 
