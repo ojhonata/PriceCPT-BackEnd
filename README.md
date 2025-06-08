@@ -90,7 +90,7 @@ dotnet ef database update
 O frontend da aplicação foi desenvolvido separadamente com **Vue.js 3**, **Chart.js** e **TailwindCSS**.
 
 Repositório do frontend:  
-[Frontend](https://github.com/SEU_USUARIO/pricecpt-frontend)
+[Frontend](https://github.com/ojhonata/PriceCPT-FrontEnd)
 
 ---
 
