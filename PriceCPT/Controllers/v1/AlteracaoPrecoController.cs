@@ -29,7 +29,7 @@ namespace PriceCPT.Controllers.v1
                 Preco_novo = a.Preco_novo,
                 Preco_base = a.Preco_base ?? 0,
                 Data_alteracao = a.Data_alteracao,
-                Estoque = a.Estoque
+                Estoque = a.Estoque ?? 0
             }).ToList();
 
             return Ok(dto);

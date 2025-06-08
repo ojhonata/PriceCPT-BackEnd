@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using PriceCPT.Domain.DTOs;
 using PriceCPT.Domain.Models;
 using PriceCPT.Infraestrutura;
+using System.Net.Http;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
@@ -183,10 +184,8 @@ namespace PriceCPT.Controllers.v1
                     }
 
                 }
-
-                
+ 
                 var novoProduto = new Produto
-
                 {
                     
                     Nome = nome,
@@ -212,6 +211,60 @@ namespace PriceCPT.Controllers.v1
             }
         }
 
+        [HttpGet("atualizar-preco/{mlb}")]
+        public async Task<IActionResult> AtualizarPrecoExistente(string mlb)
+        {
+            try
+            {
+                string url = $"http://scripts.shoppingdeprecos.com.br/scripts/ml/consultamlb.php?mlb={mlb}";
+                var httpClient = new HttpClient();
+                var resposta = await httpClient.GetAsync(url);
+                var jsonString = await resposta.Content.ReadAsStringAsync();
+
+                JsonElement dados = JsonDocument.Parse(jsonString).RootElement;
+
+                decimal precoAtual = dados.GetProperty("price").GetDecimal();
+                decimal preco_base = dados.GetProperty("base_price").GetDecimal();
+                string imagem = dados.GetProperty("thumbnail").GetString();
+                int estoque = dados.GetProperty("initial_quantity").GetInt32();
+
+                var produto = await _context.Produtos.FirstOrDefaultAsync(p => p.Mlb == mlb);
+
+                if (produto == null)
+                    return NotFound("Produto não encontrado no banco de dados");
+
+                // Criar e salvar registro na tabela AlteracaoPreco SEMPRE
+                var alteracao = new AlteracaoPreco
+                {
+                    Id_produto = produto.Id_produto,
+                    Preco_antigo = produto.Preco,
+                    Preco_novo = precoAtual,
+                    Preco_base = preco_base,
+                    Data_alteracao = DateTime.Now,
+                    Estoque = estoque
+                };
+
+                _context.AlteracaoPrecos.Add(alteracao);
+
+                // Atualiza o produto (caso os valores estejam diferentes)
+                produto.Preco = precoAtual;
+                produto.Preco_base = preco_base;
+                produto.Estoque = estoque;
+
+                _context.Produtos.Update(produto);
+                await _context.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    mensagem = "Alteração registrada",
+                    produto
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao atualizar o produto: {ex.Message}");
+            }
+        }
 
     }
 

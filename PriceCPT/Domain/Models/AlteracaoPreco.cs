@@ -20,7 +20,7 @@ namespace PriceCPT.Domain.Models
         public decimal Preco_antigo { get; set; }
         public decimal? Preco_base { get; set; }
         public DateTime Data_alteracao { get; set; }
-        public int Estoque { get; set; }
+        public int? Estoque { get; set; }
 
         public AlteracaoPreco() { }
 

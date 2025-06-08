@@ -97,6 +97,35 @@
         }
       }
     },
+    "/api/MercadoLivre/atualizar-preco/{mlb}": {
+      "get": {
+        "tags": [
+          "MercadoLivre"
+        ],
+        "parameters": [
+          {
+            "name": "mlb",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/v1/produto": {
       "post": {
         "tags": [

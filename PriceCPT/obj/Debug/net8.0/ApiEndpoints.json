@@ -42,6 +42,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PriceCPT.Controllers.v1.MercadoLivreController",
+    "Method": "AtualizarPrecoExistente",
+    "RelativePath": "api/MercadoLivre/atualizar-preco/{mlb}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mlb",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PriceCPT.Controllers.v1.AlteracaoPrecoController",
     "Method": "Get",
     "RelativePath": "api/v1/alteracao-preco",

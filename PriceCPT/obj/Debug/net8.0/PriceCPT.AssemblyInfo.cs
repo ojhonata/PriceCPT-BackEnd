@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PriceCPT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b3ff0410444532da1aca4fa2b4f014bfea6e4b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d3ae7191c0c9eec08ebdad3a88f653afcfc5f92d")]
 [assembly: System.Reflection.AssemblyProductAttribute("PriceCPT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PriceCPT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
