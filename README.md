@@ -21,7 +21,7 @@ Ele é responsável por buscar dados de produtos a partir da URL do Mercado Livr
 
 - Visual Studio
 - .NET 8 SDK
-- XAMPP com Apache e MySQL
+- XAMPP com Apache, MySQL ou MySQL Workbench
 - Git
 
 ---
@@ -41,7 +41,7 @@ Siga os passos abaixo:
 
 3. Abrir o **XAMPP** e iniciar os serviços **Apache** e **MySQL**
 
-4. Acessar o **phpMyAdmin** e criar o banco de dados:
+4. Acessar o **phpMyAdmin** ou **MySQL Workbench** e criar o banco de dados:
 
 ```sql
 CREATE DATABASE pricecpt;
@@ -90,7 +90,7 @@ dotnet ef database update
 O frontend da aplicação foi desenvolvido separadamente com **Vue.js 3**, **Chart.js** e **TailwindCSS**.
 
 Repositório do frontend:  
-[Link para o repositório do Frontend](https://github.com/SEU_USUARIO/pricecpt-frontend)
+[Frontend](https://github.com/SEU_USUARIO/pricecpt-frontend)
 
 ---
 
