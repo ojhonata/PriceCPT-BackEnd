@@ -39,7 +39,7 @@ cd pricecpt-backend
 
 Siga os passos abaixo:
 
-3. Abrir o **XAMPP** e iniciar os serviços **Apache** e **MySQL**
+3. Abrir o **XAMPP** e iniciar os serviços **Apache** e **MySQL** ou **MySQL Workbench**
 
 4. Acessar o **phpMyAdmin** ou **MySQL Workbench** e criar o banco de dados:
 
