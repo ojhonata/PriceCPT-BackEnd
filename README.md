@@ -20,7 +20,7 @@ Ele é responsável por buscar dados de produtos a partir da URL do Mercado Livr
 ## Requisitos
 
 - Visual Studio
-- .NET 8 SDK
+- .NET 8 
 - XAMPP com Apache, MySQL ou MySQL Workbench
 - Git
 
