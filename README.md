@@ -31,7 +31,7 @@ Ele é responsável por buscar dados de produtos a partir da URL do Mercado Livr
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/SEU_USUARIO/pricecpt-backend
+git clone https://github.com/ojhonata/PriceCPT-BackEnd
 cd pricecpt-backend
 ```
 
